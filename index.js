@@ -1,9 +1,10 @@
 /**
- * Created by Abner on 2014/9/26.
+ * Created by Abner on 2017/7/14.
  * E-Mail: jion_cc@163.com
  * github: https://github.com/AbnerGC/node-hot-update
  *
  */
+
 var fs = require('fs');
 var path = require('path');
 var callsites = require('callsites');
@@ -16,7 +17,6 @@ var _hasKey = function (obj) {
     return false;
 };
 
-
 var _copyProperty = function (target, source) {
     // proxy static function
     for (var key in source) {
@@ -26,23 +26,19 @@ var _copyProperty = function (target, source) {
         if (typeof property == "function") {
             target[key] = function (_key) {
                 return function () {
-                    //console.log('invoke method: ' + _key);
                     return source[_key].apply(source, arguments);
                 }
             }(key)
 
         } else {
-            // invalid when target is prototype
             Object.defineProperty(target, key, {
                 get: function (_key) {
                     return function () {
-//                        console.log('getter: ' + _key);
                         return source[_key];
                     }
                 }(key),
                 set: function (_key) {
                     return function (value) {
-//                        console.log('setter: ' + _key + ' ,value: ' + value);
                         source[_key] = value;
                     }
                 }(key)
@@ -51,7 +47,6 @@ var _copyProperty = function (target, source) {
     }
 
 };
-
 
 global._require = function (modulePath) {
 
@@ -68,15 +63,13 @@ global._require = function (modulePath) {
     if (_cache[_path]) return _cache[_path];
 
     var RealClass = require(_path);
-    console.log('RealClass',RealClass);
+
     // constructor[execute property proxy handler when create Object]
     var Proxy = function (){
-
         var realObj = new RealClass(arguments);
         // proxy all realObj's property[field and method], use getter/setter on field, and use function proxy on function
         _copyProperty(this, realObj);
     };
-
 
     if (_hasKey(RealClass)) {
 
@@ -84,6 +77,7 @@ global._require = function (modulePath) {
     }
     // use 'watchFile' and not 'watch' to keep the callback invoke once one time when the file change.
     fs.watchFile(_path, function () {
+
         delete require.cache[_path];
         // update new js file
         RealClass = require(_path);
