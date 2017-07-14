@@ -1,0 +1,42 @@
+{
+  "name": "node-hot-update",
+  "version": "0.0.1",
+  "description": "hot update your js code on nodejs platform",
+  "keywords": [
+    "hot-update",
+    "hot-reload",
+    "reload"
+  ],
+  "author": {
+    "name": "Abner",
+    "email": "jion_cc@163.com",
+    "url": "http://abnergc.github.io/"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AbnerGC/node-hot-update.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AbnerGC/node-hot-update/issues"
+  },
+  "homepage": "https://github.com/AbnerGC/node-hot-update",
+  "dependencies": {
+    "callsites": "^1.0.0"
+  },
+  "_id": "node-hot-update@0.0.1",
+  "scripts": {},
+  "_npmVersion": "2.15.8",
+  "_nodeVersion": "4.4.7",
+  "_npmUser": {
+    "name": "abner.gc",
+    "email": "jion_cc@163.com"
+  },
+  "maintainers": [
+    {
+      "name": "abner.gc",
+      "email": "jion_cc@163.com"
+    }
+  ]
+}
