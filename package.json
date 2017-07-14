@@ -1,6 +1,6 @@
 {
   "name": "node-hot-update",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "hot update your js code on nodejs platform",
   "keywords": [
     "hot-update",
@@ -16,12 +16,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AbnerGC/node-hot-update.git"
+    "url": "https://github.com/AbnerGC/nodejs-hot-update.git"
   },
   "bugs": {
-    "url": "https://github.com/AbnerGC/node-hot-update/issues"
+    "url": "https://github.com/AbnerGC/nodejs-hot-update/issues"
   },
-  "homepage": "https://github.com/AbnerGC/node-hot-update",
+  "homepage": "https://github.com/AbnerGC/nodejs-hot-update",
   "dependencies": {
     "callsites": "^1.0.0"
   },
