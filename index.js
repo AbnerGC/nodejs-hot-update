@@ -8,8 +8,8 @@
 var fs = require('fs');
 var path = require('path');
 var callsites = require('callsites');
-var _cache = {};
 
+var _cache = {};
 var _hasKey = function (obj) {
     for (var key in obj) {
         return true;
@@ -22,14 +22,12 @@ var _copyProperty = function (target, source) {
     for (var key in source) {
 
         var property = source[key];
-
         if (typeof property == "function") {
             target[key] = function (_key) {
                 return function () {
                     return source[_key].apply(source, arguments);
                 }
             }(key)
-
         } else {
             Object.defineProperty(target, key, {
                 get: function (_key) {
@@ -42,28 +40,19 @@ var _copyProperty = function (target, source) {
                         source[_key] = value;
                     }
                 }(key)
-            })
+            });
         }
     }
 
 };
 
 global._require = function (modulePath) {
-
     var callerPath = callsites()[1].getFileName();
-
-    if (arguments.length == 2) {
-        console.warn('since 0.0.7 you can use _require(\'path/to/your.js\') without __dirname in file: ' + callerPath);
-        modulePath = arguments[1];
-    }
-
     var _path = require.resolve(path.dirname(callerPath) + '/' + modulePath);
-
 
     if (_cache[_path]) return _cache[_path];
 
     var RealClass = require(_path);
-
     // constructor[execute property proxy handler when create Object]
     var Proxy = function (){
         var realObj = new RealClass(arguments);
@@ -84,8 +73,6 @@ global._require = function (modulePath) {
         _copyProperty(Proxy, RealClass);
         console.log('update js: ' + _path);
     });
-
     _cache[_path] = Proxy;
-
     return Proxy;
 };

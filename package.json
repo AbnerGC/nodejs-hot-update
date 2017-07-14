@@ -1,6 +1,6 @@
 {
   "name": "node-hot-update",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "hot update your js code on nodejs platform",
   "keywords": [
     "hot-update",
@@ -25,7 +25,6 @@
   "dependencies": {
     "callsites": "^1.0.0"
   },
-  "_id": "node-hot-update@0.0.2",
   "scripts": {},
   "_npmVersion": "2.15.8",
   "_nodeVersion": "4.4.7",
