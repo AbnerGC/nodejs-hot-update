@@ -12,7 +12,7 @@ Example
 ######  Note that  for now I use filewatch function for watch file change
 ######  lalal gu ro gu ro
 ######  434234234
-######  11111111111133333
+######  3333ggggg
 
 ```javascript
 require('node-hot-update');
