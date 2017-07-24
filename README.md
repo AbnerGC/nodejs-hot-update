@@ -10,7 +10,7 @@ Example
 
 ######  require 'node-hot-update' on the project start, just need require once only.
 ######  Note that  for now I use watchFile function of fs lib for watch file change.
-
+######  hahahahaah
 ```javascript
 require('node-hot-update');
 ```
