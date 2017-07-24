@@ -8,8 +8,8 @@ Example
 
 #### 1. Setting
 
-######  require 'node-hot-update' on the project start, just need require once only
-######  Note that  for now I use watchFile function of fs lib for watch file change
+######  require 'node-hot-update' on the project start, just need require once only.
+######  Note that  for now I use watchFile function of fs lib for watch file change.
 
 ```javascript
 require('node-hot-update');
