@@ -9,7 +9,9 @@ Example
 #### 1. Setting
 
 ######  require 'node-hot-update' on the project start, just need require once only
-###### 1111
+######  Note that  for now I use filewatch function for watch file change
+######  lalal gu ro gu ro
+######
 ```javascript
 require('node-hot-update');
 ```
